@@ -37,3 +37,8 @@ __screenshots__/
 
 # Vite
 *.timestamp-*-*.mjs
+
+# OpenCode session
+.opencode_session/auth.json
+.opencode_session/*.db-shm
+.opencode_session/*.db-wal
