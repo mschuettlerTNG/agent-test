@@ -1,17 +1,33 @@
 schemaVersion: v0.2
 prepare:
   steps:
+    - name: Install Node.js 22
+      command: |
+        export NVM_DIR="/home/user/app/.nvm"
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+        source "$NVM_DIR/nvm.sh"
+        nvm install 22
+        nvm alias default 22
     - name: Install Dependencies
-      command: npm install
+      command: |
+        export NVM_DIR="/home/user/app/.nvm"
+        source "$NVM_DIR/nvm.sh"
+        npm install
     - name: Build Application
-      command: npm run build
+      command: |
+        export NVM_DIR="/home/user/app/.nvm"
+        source "$NVM_DIR/nvm.sh"
+        npm run build
 test:
   steps: []
 run:
   app:
     steps:
       - name: Serve Static Files
-        command: npx serve dist -l 3000
+        command: |
+          export NVM_DIR="/home/user/app/.nvm"
+          source "$NVM_DIR/nvm.sh"
+          npx serve dist -l 3000
     plan: 8
     replicas: 1
     isPublic: true
