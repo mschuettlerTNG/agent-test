@@ -3,11 +3,11 @@ prepare:
   steps:
     - name: Install Node.js 22
       command: |
+        mkdir -p /home/user/app/.nvm
         export NVM_DIR="/home/user/app/.nvm"
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | NVM_DIR="/home/user/app/.nvm" PROFILE=/dev/null bash
         source "$NVM_DIR/nvm.sh"
         nvm install 22
-        nvm alias default 22
     - name: Install Dependencies
       command: |
         export NVM_DIR="/home/user/app/.nvm"
