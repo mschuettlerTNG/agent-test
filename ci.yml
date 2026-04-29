@@ -1,5 +1,3 @@
-schemaVersion: v0.2
-
 prepare:
   steps:
     - name: Install Dependencies
@@ -12,7 +10,7 @@ run:
     steps:
       - name: Serve Static Files
         command: npx serve dist -l 3000
-    plan: 11
+    healthEndpoint: http://localhost:3000/
     network:
       ports:
         - port: 3000
