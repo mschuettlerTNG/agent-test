@@ -1,0 +1,22 @@
+schemaVersion: v0.2
+
+prepare:
+  steps:
+    - name: Install Dependencies
+      command: npm install
+    - name: Build Application
+      command: npm run build
+
+run:
+  app:
+    steps:
+      - name: Serve Static Files
+        command: npx serve dist -l 3000
+    plan: 11
+    network:
+      ports:
+        - port: 3000
+          isPublic: false
+      paths:
+        - port: 3000
+          path: /
