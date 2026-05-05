@@ -26,10 +26,7 @@ const styles = computed(() => ({
 </script>
 
 <template>
-  <div
-    :style="styles"
-    class="glow-border pointer-events-none absolute inset-0 size-full rounded-[inherit]"
-  />
+  <div :style="styles" class="glow-border" />
 </template>
 
 <style scoped>
@@ -40,6 +37,12 @@ const styles = computed(() => ({
 }
 
 .glow-border {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: inherit;
   animation: glow var(--duration) ease infinite;
   will-change: background-position;
 }
